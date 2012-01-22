@@ -1,0 +1,11 @@
+Koala Rails Sample App
+by Anna Billstrom
+
+
+A sample app to show the Facebook API Koala's connectivity and session management. 
+I put this together in response to various requests on my blog post, http://www.banane.com/2011/10/13/ruby-on-rails-and-facebook-api-koala-basic-example/
+
+I'm using a sample application id - please insert your own before running or testing.
+
+Contact me at banane-at-gmail.com with questions, etc.
+.
