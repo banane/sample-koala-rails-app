@@ -1,6 +1,7 @@
 Koala Rails Sample App
 by Anna Billstrom
 
+Feb 26, 2012 - updated the app name all over from KoalaTest to SampleKoalaRailsApp (thanks George K for the note). Sorry about that- KoalaTest was my original app name.
 
 A sample app to show the Facebook API Koala's connectivity and session management. 
 I put this together in response to various requests on my blog post, http://www.banane.com/2011/10/13/ruby-on-rails-and-facebook-api-koala-basic-example/
