@@ -14,7 +14,7 @@ class HomeController < ActionController::Base
 	def callback
   	if params[:code]
   		# acknowledge code and get access token from FB
-		  session[:access_token] = session[:oauth].get_access_token(params[:code])
+		  session[:access_token] = session[:oauth].get_access_token(params[:code])		  
 		end		
 
 		 # auth established, now do a graph call:
@@ -22,6 +22,23 @@ class HomeController < ActionController::Base
 		@api = Koala::Facebook::API.new(session[:access_token])
 		begin
 			@graph_data = @api.get_object("/me/statuses", "fields"=>"message")
+		rescue Exception=>ex
+			puts ex.message
+		end
+		
+		
+		# update/save user's fb info
+		begin
+			me = @api.get_object("/me")
+			user = User.find_by_fbid(me["id"])
+			if user
+  			user.name = me["name"]
+  			user.access = session[:access_token]
+  			user.save
+  		else
+  		    user = User.new(:access=>session[:access_token], :name=>me["name"],:fbid=>me["id"])
+  			  user.save
+  		end
 		rescue Exception=>ex
 			puts ex.message
 		end
